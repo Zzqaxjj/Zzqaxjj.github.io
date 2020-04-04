@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习总结知识">
+  <meta name="author" content="张振淇">
+  <meta name="keywords" content="">
+  <title>我的学习博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>我的学习博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/NodeJS/%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97/path/">
+        <p class="h4 index-header">NodeJS/核心模块/path</p>
+      </a>
+
+      <a href="/2020/04/04/NodeJS/%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97/path/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">pathpath 模块提供用于处理文件路径和目录路径的实用工具。
+normalize、join、resolve
+path.normalize() 方法规范化给定的 path，解析 ‘..’ 和 ‘.’ 片段。
+path.normalize(&#39;/foo/bar//baz/asdf/quux/..&#39;);
+// 返回: &#39;/foo/bar/baz/asdf&#39;
+
+path.join方法使用平台特定分隔符作为定界符将所有给定的path片段连接在一起，然后生成规范的路径
+
+
+path.join(&#39;/foo&#39;, &#39;bar&#39;, &#39;baz/</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/NodeJS/%E6%A8%A1%E5%9D%97%E6%9C%BA%E5%88%B6/">
+        <p class="h4 index-header">NodeJS/模块机制</p>
+      </a>
+
+      <a href="/2020/04/04/NodeJS/%E6%A8%A1%E5%9D%97%E6%9C%BA%E5%88%B6/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">模块机制CommonJS模块规范模块引用
+var math = require(&#39;math&#39;);
+模块定义上下文提供exports对象用于导出当前模块的方法和变量，并且他是唯一的导出出口
+exports实际上是module.exports，而module.exports就是以一个暴露给外部的对象。
+
+exports.some就是给这个对象上添加属性
+直接使用 module.exports = {…} 则可以让外部直接获取到这个对象，相当与为exports换了一个引用，如果在这之前使用exports.some会把之前的覆盖
+
+CommonJS 用法// a.js
+module.e</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/NodeJS/%E5%BC%82%E6%AD%A5IO/">
+        <p class="h4 index-header">NodeJS/异步IO</p>
+      </a>
+
+      <a href="/2020/04/04/NodeJS/%E5%BC%82%E6%AD%A5IO/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">异步I/O为什么要异步I/O用户体验，快！使用阻塞式加载两个资源时间为 M + N
+使用异步I/O加载两个资源时间为： max(M, N)
+资源分配假设有一堆不相关的任务需要完成，主流有两种
+
+单线程串行依次执行
+多线程并行执行
+
+多线程的代价在于创建线程和执行线程上下文切换的开销较大。在复杂业务中，多线程编程经常面临锁、状态同步等问题，这是多线程的主要诟病。
+单线程顺序执行比较符合思考顺序，而且易于表达。但串行执行
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/NodeJS/README/">
+        <p class="h4 index-header">NodeJS/README</p>
+      </a>
+
+      <a href="/2020/04/04/NodeJS/README/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">NodeJSNodeJS 特点
+非阻塞式的异步I/O
+Node.js中采用了非阻塞型I/O机制，因此在执行了访问文件的代码之后，Nodejs不会阻塞在那里等待文件获取完成，而是把这件事交给底层操作系统，使用回调函数的方式来处理异步的IO，立即转而执行其它的代码，
+
+
+事件轮询
+Nodejs接收到的事件会放到事件队列中，而不是立即执行它，当NodeJS当前代码执行完后他会检查事件队列中是否有事件，如果有，他会取出来依次执行
+
+
+单线程
+Node.js不为每个客户连接创建一个新的线程，而仅仅使用一个线程。当有用户连接了，就触发一个内部事件，通过非阻塞I/O、事件驱动机制，让Node.js程序宏观上</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/NodeJS/npm/">
+        <p class="h4 index-header">NodeJS/npm</p>
+      </a>
+
+      <a href="/2020/04/04/NodeJS/npm/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">包与npm包结构包实际上是一个存档文件，及一个目录直接打包为.zip或tar.gz格式的文件，安装后解压还原为目录。完全符合CommonJS规范的包目录应该包含如下这些文件。
+
+package.json
+包描述文件
+
+
+bin
+存放可执行二进制文件的目录
+
+
+lib
+用于存放JavaScript代码目录
+
+
+doc
+用于存放文档的目录
+
+
+test
+用于存放单元测试用例的代码
+
+
+
+package.jsonCommonJS为起定义了一些必需的字段。
+
+name
+包名。唯一的，避免对外发布时命名冲突
+
+
+description
+包简介
+
+
+version
+版本号
+
+
+keywords
+关键词数组</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E6%AD%A3%E5%88%99/">
+        <p class="h4 index-header">JS基础/正则</p>
+      </a>
+
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E6%AD%A3%E5%88%99/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">正则表达式创建正则表达式
+使用一个正则表达式字面量const regex = /^[a-zA-Z]+[0-9]*\W?_$/gi;
+
+调用RegExp对象的构造函数const regex = new RegExp(pattern, [, flags])
+
+
+特殊字符
+^ 匹配输入的开始
+$ 匹配输入的结束
+* 0次或多次  {0，} 
++ 1次或多次  {1，}
+? 
+0次或者1次 {0,1}。
+用于先行断言
+如果紧跟在任何量词 *、 +、? 或 {} 的后面，将会使量词变为非贪婪
+对 “123abc” 用 /\d+/ 将会返回 “123”，
+用 /\d+?/,那么就只会匹配到 “1”。
+
+
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%92%8C%E4%BC%98%E5%8C%96/">
+        <p class="h4 index-header">JS基础/垃圾回收与内存泄露和优化</p>
+      </a>
+
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E4%B8%8E%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%92%8C%E4%BC%98%E5%8C%96/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">【V8引擎】浅析Chrome V8引擎中的垃圾回收机制和内存泄露优化策略
+垃圾回收机制如何判断回收内容如何确定哪些内存需要回收，哪些内存不需要回收，这是垃圾回收期需要解决的最基本问题。我们可以这样假定，一个对象为活对象当且仅当它被一个根对象 或另一个活对象指向。根对象永远是活对象，它是被浏览器或V8所引用的对象。被局部变量所指向的对象也属于根对象，因为它们所在的作用域对象被视为根对 象。全局对象（Node中为global，浏览器中为window）自然是根对象。浏览器中的DOM元素也属于根对象。
+V8 回收策略新生代的对象为存活时间较短的对象，老生代中的对象为存活时间较长或常驻内存的对象。分别对</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
+        <p class="h4 index-header">JS基础/变量类型和类型转换</p>
+      </a>
+
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JS 变量类型JS中有 6 种原始值，分别是：
+
+boolean
+number
+string
+undefined
+symbol
+null
+
+引用类型：
+
+对象
+数组
+函数
+
+JS中使用typeof能得到哪些类型？其中一个奇怪的 null，虽然是基本变量，但是因为设计的时候null是全0，而对象是000开头，所以有这个误判。
+
+boolean
+number
+string
+undefined
+symbol
+object
+function
+bigint
+
+instanceof 能正确判断对象的原理是什么？判断一个对象与构造函数是否在一个原型链上
+const Person = function() {</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B8%8E%E7%BB%A7%E6%89%BF/">
+        <p class="h4 index-header">JS基础/原型链与继承</p>
+      </a>
+
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B8%8E%E7%BB%A7%E6%89%BF/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">创建对象的方法
+字面量创建
+构造函数创建
+Object.create()
+
+var o1 = {name: &#39;value&#39;};
+var o2 = new Object({name: &#39;value&#39;});
+
+var M = function() {this.name = &#39;o3&#39;};
+var o3 = new M();
+
+var P = {name: &#39;o4&#39;};
+var o4 = Object.create(P)
+原型
+JavaScript 的所有对象中都包含了一个 __proto__ 内部属性，这个属性所对应的就是该对象的原型
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%87%BD%E6%95%B0/">
+        <p class="h4 index-header">JS基础/函数</p>
+      </a>
+
+      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%87%BD%E6%95%B0/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">函数JS运行分三步：语法分析（通篇扫描是否有语法错误），预编译（发生在函数执行的前一刻），解释执行（一行行执行）。
+预编译执行分五步：一、创建AO对象（Activation Object  执行期上下文）
+二、找形参和变量声明，将变量和形参名作为AO属性名，值为undefined.    变量声明提升（变量放到后面也不会报错，只是未定义类型）如：console.log(a);var a=10;结果undenfined;
+三、将实参值和形参统一（传参）
+四、在函数体里面找到函数声明{函数声明整体提升（相当于放到程序最前面）}
+五、值赋予函数体，执行（声明函数和变量的部分直接不看了）
+函数作用域[</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/7/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/"><i class="fas fa-angle-double-right"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Good Good Study,Day Day Up!&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

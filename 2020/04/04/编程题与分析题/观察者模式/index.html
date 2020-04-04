@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习总结知识">
+  <meta name="author" content="张振淇">
+  <meta name="keywords" content="">
+  <title>编程题与分析题/观察者模式 - 我的学习博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>我的学习博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期六, 四月 4日 2020, 6:32 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                    
+                    
+                    14
+                     分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="JS观察者模式"><a href="#JS观察者模式" class="headerlink" title="JS观察者模式"></a>JS观察者模式</h1><blockquote>
+<p>观察者模式:观察者模式（Observer mode）指的是函数自动观察数据对象，一旦对象有变化，函数就会自动执行。而js中最常见的观察者模式就是事件触发机制。</p>
+</blockquote>
+<h3 id="先来个完整的"><a href="#先来个完整的" class="headerlink" title="先来个完整的"></a>先来个完整的</h3><pre><code class="js">class EventEmiter {
+  constructor () {
+    this.eventPool = {
+    //  &#39;eventName&#39;: []
+    }
+  }
+  listen(eventName, callback) {
+    if(this.eventPool[eventName]) {
+      if(this.eventPool[eventName].indexOf(callback) === -1) {
+        this.eventPool[eventName].push(callback)
+      }
+    } else {
+      this.eventPool[eventName] = [callback]
+    }
+  }
+  // trigger是有参数的
+  trigger(eventName, ...args) {
+    if(this.eventPool[eventName]) {
+      this.eventPool[eventName].forEach(cb =&gt; cb(...args))
+    }
+  }
+  remove(eventName, callback) {
+    if(this.eventPool[eventName]) {
+        let cbIndex = this.eventPool[eventName].indexOf(callback)
+        this.eventPool[eventName].splice(cbIndex, 1)
+    }
+  }
+  once(eventName, callback) {
+    this.listen(eventName, function _cb(...args) {
+      callback(...args);
+      this.remove(eventName, _cb)
+    })  
+  }
+}</code></pre>
+<p><a href="https://www.jianshu.com/p/10a20df72bf2" target="_blank" rel="noopener">ES5/ES6实现观察者模式(自定义事件) - 简书</a></p>
+<h3 id="先搭架子"><a href="#先搭架子" class="headerlink" title="先搭架子"></a>先搭架子</h3><ol>
+<li>要有一个对象，存储着它自己的触发函数。而且这个对象的触发函数可能有很多种，比如一个onclick可能触发多个事件，那么handler的属性应该是一个数组，每个数组的值都是一个函数。</li>
+</ol>
+<pre><code class="js">handler={
+  type1:[func1,func2...],
+  type2:[func3,func4...],
+  ...
+}</code></pre>
+<p>现在这个对象的主体部分已经思考好了，现在就是要它‘动起来’，给它添加各种动作。<br>一个事件可能有哪些动作呢？</p>
+<ul>
+<li>add：添加事件某种类型的函数，</li>
+<li>remove: 移除某种类型的函数，</li>
+<li>fire：触发某种类型的函数,</li>
+<li>once:触发某种类型的函数，然后移除掉这个函数</li>
+</ul>
+<p>现在，自定义事件的架子已经搭建好了</p>
+<pre><code class="js">eventOb={
+  //函数储存
+  handler:{
+    type1:[func1,func2...],
+    type2:[func2,func4...],
+    ...
+  },
+
+  //主要事件
+  add:function(){},
+  remove:function(){},
+  fire:function(){},
+  once:function(){},
+}</code></pre>
+<h3 id="add"><a href="#add" class="headerlink" title="add"></a>add</h3><p>添加一个事件监听，首先传入参数应该是 事件类型type，和触发函数 func，传入的时候检测有没有这个函数，有了就不重复添加。</p>
+<pre><code class="js">add:function (type,func) {
+  //检测type是否存在
+  if(eventOb.handleFunc[type]){
+    //检测事件是否存在，不存在则添加
+    if(eventOb.handleFunc[type].indexOf(func)===-1){
+      eventOb.handleFunc[type].push(func);
+    }
+  }
+  else{
+    eventOb.handleFunc[type]=[func];
+  }
+},</code></pre>
+<h3 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h3><p>remove有一个潜在的需求，就是如果你的事件不存在，它应该会报错。而这里不会报错，index在func不存在的时候是-1；这时候要报错。</p>
+<pre><code class="js">remove:function (type,func) {
+  try{
+    let target = eventOb.handleFunc[type];
+    let index = target.indexOf(func);
+    if(index===-1) throw error;
+    target.splice(index,1);
+  }catch (e){
+      console.error(&#39;别老想搞什么飞机，删除我有的东西！&#39;);
+  }
+},</code></pre>
+<h3 id="fire"><a href="#fire" class="headerlink" title="fire"></a>fire</h3><p>触发一个点击事件肯定是要触发它全部的函数，这里也是一样，所以只需要传入type，然后事件可能不存在，像上面一样处理。</p>
+<pre><code class="js">fire:function (type,func) {
+  try{
+    let target = eventOb.handleFunc[type];
+    let count = target.length;
+    for (var i = 0; i &lt; count; i++) {
+      //加()使立即执行
+      target[i]();
+    }    
+  }
+  catch (e){
+    console.error(&#39;别老想搞什么飞机，触发我有的东西！&#39;);
+  }
+},</code></pre>
+<p>但会有问题，我只想触发并且删除某个事件怎么办，fire一下就全触发了呀。<br>所以fire的问题就显现出来了。我们还是要给它一个func，但是可选。</p>
+<pre><code class="js">fire:function (type,func) {
+  try{
+    let target = eventOb.handleFunc[type];
+    if(arguments.length===1) {
+      //不传func则全部触发
+      let count = target.length;
+      for (var i = 0; i &lt; count; i++) {
+          target[i]();
+      }
+    }else{
+      //传func则触发func
+      let index=target.indexOf(func);
+      if(index===-1)throw error;
+      func();
+    }
+    //need some code
+  }catch (e){
+    console.error(&#39;别老想搞什么飞机，触发我有的东西！&#39;);
+    //need some code
+  }
+},</code></pre>
+<h3 id="once"><a href="#once" class="headerlink" title="once"></a>once</h3><p>fire，然后remove</p>
+<pre><code class="js">
+once (event, callback) {
+  this.fire(event, (...args) =&gt; {
+      callback(...args);
+      this.remove(event)
+  })
+}</code></pre>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><pre><code class="js">class eventObs {
+  constructor(){
+    this.handleFunc={}
+  }
+
+  add(type,func){
+    if(this.handleFunc[type]){
+        if(this.handleFunc[type].indexOf(func)===-1){
+            this.handleFunc[type].push(func);
+        }
+    }else{
+        this.handleFunc[type]=[func];
+    }
+  };
+
+  fire(type,func){
+    try{
+      if(arguments.length===1) {
+          let target = this.handleFunc[type];
+          let count = target.length;
+          for (var i = 0; i &lt; count; i++) {
+              target[i]();
+          }
+      }else{
+          let target = this.handleFunc[type];
+          let index=target.indexOf(func);
+          if(index===-1)throw error;
+          func();
+      }
+      return true;
+    }catch (e){
+        console.error(&#39;别老想搞什么飞机，触发我有的东西！&#39;);
+        return false;
+    }
+  };
+
+  remove(type,func){
+      try{
+          let target = this.handleFunc[type];
+          let index=target.indexOf(func);
+          if(index===-1)throw error;
+          target.splice(index,1);
+      }catch (e){
+          console.error(&#39;别老想搞什么飞机，删除我有的东西！&#39;);
+      }
+
+  };
+
+  once(type,func) {
+
+    this.fire(type, func)
+    ? this.remove(type, func)
+    : null;
+  }
+}</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E9%97%AD%E5%8C%85/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">编程题与分析题/闭包</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/">
+                        <span class="hidden-mobile">编程题与分析题/类型判断</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').each(function () {
+        const pre = $(this);
+        if (pre.find('code.mermaid').length > 0) {
+          return;
+        }
+        pre.addClass('prettyprint  linenums');
+      });
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "编程题与分析题/观察者模式&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

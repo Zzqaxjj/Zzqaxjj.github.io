@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习总结知识">
+  <meta name="author" content="张振淇">
+  <meta name="keywords" content="">
+  <title>JS基础/函数 - 我的学习博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>我的学习博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期六, 四月 4日 2020, 6:32 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.4k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                    
+                    
+                    16
+                     分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h3 id="JS运行分三步："><a href="#JS运行分三步：" class="headerlink" title="JS运行分三步："></a>JS运行分三步：</h3><p>语法分析（通篇扫描是否有语法错误），预编译（发生在函数执行的前一刻），解释执行（一行行执行）。</p>
+<h3 id="预编译执行分五步："><a href="#预编译执行分五步：" class="headerlink" title="预编译执行分五步："></a>预编译执行分五步：</h3><p>一、创建AO对象（Activation Object  执行期上下文）</p>
+<p>二、找形参和变量声明，将变量和形参名作为AO属性名，值为undefined.<br>    变量声明提升（变量放到后面也不会报错，只是未定义类型）如：console.log(a);var a=10;结果undenfined;</p>
+<p>三、将实参值和形参统一（传参）</p>
+<p>四、在函数体里面找到函数声明{函数声明整体提升（相当于放到程序最前面）}</p>
+<p>五、值赋予函数体，执行（声明函数和变量的部分直接不看了）</p>
+<h3 id="函数作用域-scope"><a href="#函数作用域-scope" class="headerlink" title="函数作用域[[scope]]"></a>函数作用域[[scope]]</h3><p>每个javascript函数都是一个对象，对象中有的属性可以访问，有的不能，这些属性仅供javascript引擎存取，如[[scope]]。</p>
+<p>[[scope]]就是函数的作用域，其中存储了执行期上下文的集合。</p>
+<p><strong>执行期上下文</strong>： 当函数执行时，会创建一个称为执行期上下文的内部对象（AO）。一个执行期上下文定义了一个函数执行时的环境，函数每次执行时对应的执行期上下文都是独一无二的，所以多次调用一个函数会导致创建多个执行期上下文，当函数执行完毕，它所产生的执行上下文被销毁。</p>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p><code>[[scope]]</code>中所存储的执行期上下文对象的集合，这个集合呈链式链接，我们称这种链式链接为作用域链。查找变量时，要从作用域链的顶部开始查找。Activation Object（AO）到Global Object（GO）。</p>
+<p><img src="../img/function.png" srcset="/img/loading.gif" alt="function"><br><img src="../img/define.png" srcset="/img/loading.gif" alt="a定义"><br><img src="../img/run.png" srcset="/img/loading.gif" alt="a run"><br><img src="../img/bdefine.png" srcset="/img/loading.gif" alt="b define"><br><img src="../img/brun.png" srcset="/img/loading.gif" alt="b run"></p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>当内部函数被保存到外部时，将会生成闭包。生成闭包后，内部函数依旧可以访问其所在的外部函数的变量。</p>
+<p>闭包问题的解决方法：立即执行函数、let</p>
+<p>详细解释：</p>
+<p>当函数执行时，会创建一个称为<strong>执行期上下文的内部对象（AO）</strong>，执行期上下文定义了一个函数执行时的环境。</p>
+<p>函数还会获得它所在作用域的<strong>作用域链</strong>，是存储函数能够访问的所有执行期上下文对象的集合，即这个函数中能够访问到的东西都是沿着作用域链向上查找直到全局作用域。</p>
+<p>函数每次执行时对应的执行期上下文都是独一无二的，当函数执行完毕，函数都会失去对这个作用域链的引用，JS的垃圾回收机制是采用引用计数策略，如果一块内存不再被引用了那么这块内存就会被释放。</p>
+<p>但是，当闭包存在时，即内部函数保留了对外部变量的引用时，这个作用域链就不会被销毁，此时内部函数依旧可以访问其所在的外部函数的变量，这就是闭包。</p>
+<p>先看两个例子，两个例子都打印5个5</p>
+<pre><code class="js">for (var i = 0; i &lt; 5; i++) {
+  setTimeout(function timer() {
+    console.log(i)
+  }, i * 100)
+}</code></pre>
+<pre><code class="js">function test() {
+   var a = [];
+   for (var i = 0; i &lt; 5; i++) {
+         a[i] = function () {
+            console.log(i);
+         }
+   }
+   return a;
+}
+
+var myArr = test();
+for(var j=0;j&lt;5;j++)
+{
+   myArr[j]();
+}</code></pre>
+<p>解决方法： 使用立即执行函数</p>
+<pre><code class="js">for (var i = 0; i &lt; 5; i++) {
+   ;(function(i) {
+      setTimeout(function timer() {
+         console.log(i)
+      }, i * 100)
+   })(i)
+}</code></pre>
+<pre><code class="js">function test(){
+   var arr=[];
+   for(i=0;i&lt;10;i++)
+   {
+      (function(j){
+         arr[j]=function(){
+         console.log(j);
+         }
+      })(i)
+   }
+   return arr;
+}
+
+var myArr=test();
+for(j=0;j&lt;10;j++)
+{
+   myArr[j]();
+}</code></pre>
+<h3 id="闭包-封装私有变量"><a href="#闭包-封装私有变量" class="headerlink" title="闭包-封装私有变量"></a>闭包-封装私有变量</h3><pre><code class="js">function Counter() {
+   let count = 0;
+   this.plus = function () {
+      return ++count;
+   }
+   this.minus = function () {
+      return --count;
+   }
+   this.getCount = function () {
+      return count;
+   }
+}
+
+const counter = new Counter();
+counter.puls();
+counter.puls();
+console.log(counter.getCount())</code></pre>
+<h3 id="作用域与变量声明提升"><a href="#作用域与变量声明提升" class="headerlink" title="作用域与变量声明提升"></a>作用域与变量声明提升</h3><ul>
+<li>在 JavaScript 中，函数声明与变量声明会被 JavaScript 引擎隐式地提升到当前作用域的顶部 </li>
+<li>声明语句中的赋值部分并不会被提升，只有名称被提升</li>
+<li>函数声明的优先级高于变量，如果变量名跟函数名相同且未赋值，则函数声明会覆盖变量声明</li>
+<li>如果函数有多个同名参数，那么最后一个参数（即使没有定义）会覆盖前面的同名参数</li>
+</ul>
+<h3 id="构造函数，new时发生了什么？"><a href="#构造函数，new时发生了什么？" class="headerlink" title="构造函数，new时发生了什么？"></a>构造函数，new时发生了什么？</h3><pre><code class="javascript">   var obj  = {}; 
+   obj.__proto__ = Base.prototype;
+   Base.call(obj);  </code></pre>
+<ol>
+<li>创建一个新的对象 obj;</li>
+<li>将这个空对象的<strong>proto</strong>成员指向了Base函数对象prototype成员对象</li>
+<li>Base函数对象的this指针替换成obj, 相当于执行了Base.call(obj);</li>
+<li>如果构造函数显示的返回一个对象，那么则这个实例为这个返回的对象。 否则返回这个新创建的对象</li>
+</ol>
+<h3 id="函数参数是对象会发生什么问题？"><a href="#函数参数是对象会发生什么问题？" class="headerlink" title="函数参数是对象会发生什么问题？"></a>函数参数是对象会发生什么问题？</h3><pre><code class="javascript">function test(person) {
+  person.age = 26
+  person = {
+    name: &#39;yyy&#39;,
+    age: 30
+  }
+
+  return person
+}
+const p1 = {
+  name: &#39;hy&#39;,
+  age: 25
+}
+const p2 = test(p1)
+console.log(p1) // -&gt; {name: &quot;hy&quot;, age: 26}
+console.log(p2) // -&gt; {name: &quot;yyy&quot;, age: 30}</code></pre>
+<p><code>person = {}</code> 这一步操作就将应用与原来的分离了<br><img src="../img/addressChange.png" srcset="/img/loading.gif" alt="地址改变"></p>
+<h3 id="JavaScript-中，调用函数有哪几种方式？"><a href="#JavaScript-中，调用函数有哪几种方式？" class="headerlink" title="JavaScript 中，调用函数有哪几种方式？"></a>JavaScript 中，调用函数有哪几种方式？</h3><ul>
+<li>方法调用模式 Foo.foo(arg1, arg2);</li>
+<li>函数调用模式 foo(arg1, arg2);</li>
+<li>构造器调用模式 (new Foo())(arg1, arg2);</li>
+<li>call/apply 调用模式 Foo.foo.call(that, arg1, arg2);</li>
+<li>bind 调用模式 Foo.foo.bind(that)(arg1, arg2)();</li>
+</ul>
+<h3 id="如何实现一个new"><a href="#如何实现一个new" class="headerlink" title="如何实现一个new?"></a>如何实现一个new?</h3><pre><code class="js">function _new(func, ...args) {
+   let obj = Object.create(func.prototype)      // 原型
+   let res = func.apply(obj, args);             // 初始化对象属性
+   return (res instanceof Object) ? res : obj;  // 返回值
+}</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B8%8E%E7%BB%A7%E6%89%BF/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">JS基础/原型链与继承</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/04/JS%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96%E9%A2%98%E7%9B%AE/">
+                        <span class="hidden-mobile">JS基础/其他题目</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').each(function () {
+        const pre = $(this);
+        if (pre.find('code.mermaid').length > 0) {
+          return;
+        }
+        pre.addClass('prettyprint  linenums');
+      });
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "JS基础/函数&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习总结知识">
+  <meta name="author" content="张振淇">
+  <meta name="keywords" content="">
+  <title>我的学习博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>我的学习博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/webpack/%E6%A8%A1%E5%9D%97%E5%8C%96/">
+        <p class="h4 index-header">webpack/模块化</p>
+      </a>
+
+      <a href="/2020/04/04/webpack/%E6%A8%A1%E5%9D%97%E5%8C%96/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">模块化随着前端项目复杂性不断提高，JS的代码量变的越来越大，必须做拆分。但如果仅是拆成几个 js 文件，然后在用script标签去引入这些文件又会使导致以下几个问题：
+
+影响加载速度
+JS文件变多，加载JS文件数量过多导致页面加载速度编码
+
+
+代码的引入次序
+使用script标签引入JS时还必须控制JS的顺序。在单个JS文件编写的时候，如果要使用其他的JS文件中的一些变量和函数，不能直观的知道这个变量或函数是在哪个文件定义的。
+
+
+命名空间污染
+JS虽然拆开了，但实际上在浏览器运行时就像把所有文件都何在一起了一样
+
+
+
+模块化可以解决上面的问题，但是模块化后的代码是使用import或expor</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/webpack/%E5%AE%89%E8%A3%85/">
+        <p class="h4 index-header">webpack/安装</p>
+      </a>
+
+      <a href="/2020/04/04/webpack/%E5%AE%89%E8%A3%85/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">安装 webpack在项目中安装
+npm install webpack webpack-cli --save-dev是否全局安装？
+如果电脑上有两个项目，一个 webpack3 打包，一个 webpack4 打包。安装后可能导致你webpack3的项目无法打包，所以一般都是项目内安装。
+webpack-cli使得可以在命令行里使用webpack
+npx项目内安装webpack后，直接在终端输入webpack -v是不可以的，但是使用npx webpack -v就可以。
+$ webpack -v
+&gt; bash: webpack: command not found
+$ npx webpa</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/webpack/webpack%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+        <p class="h4 index-header">webpack/webpack配置文件</p>
+      </a>
+
+      <a href="/2020/04/04/webpack/webpack%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">webpack配置文件webpack.config.jswebpack.config.js是webpack的默认打包配置文件。也可以npx webpack --config 配置文件名手动设置
+/**
+ * Wepack配置接口
+ */
+const path = require(&#39;path&#39;);
+
+ module.exports = {
+    // 打包模式
+    mode: &quot;production&quot;,
+    // 入口
+    entry: &quot;./index.js&quot;,
+    // 出口
+    output: {
+       </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/webpack/README/">
+        <p class="h4 index-header">webpack/README</p>
+      </a>
+
+      <a href="/2020/04/04/webpack/README/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">webpack简介webpack是一个前端模块化打包工具，最开始它只能打包JS文件，但是随着webpack的发展，他还能打包如CSS、图片等文件。主要由入口，出口，loader，plugins四个部分。
+模块化安装webpack基本配置文件Loaderpackage-lock.json</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/webpack/plugins/">
+        <p class="h4 index-header">webpack/plugins</p>
+      </a>
+
+      <a href="/2020/04/04/webpack/plugins/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">plugins使用plugins让打包变的便捷，可以在webpack打包的某时刻帮做一些事情，他很像一个生命周期函数
+html-webpack-pluginhtml-webpack-plugin 会在打包结束后，自动生成一个html文件,并把打包生成的js自动引入到HTML中。可以给这个html制定一个模板
+const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;)
+// 插件
+plugins: [
+    new HtmlWebpackPlugin({
+        template: &#39;src/index.ht</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/webpack/package-lock.json/">
+        <p class="h4 index-header">webpack/package-lock.json</p>
+      </a>
+
+      <a href="/2020/04/04/webpack/package-lock.json/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">package-lock.json概括很简单，就是锁定安装时的包的版本号，并且需要上传到git，以保证其他人在npm install时大家的依赖能保证一致。
+根据官方文档，这个package-lock.json 是在 npm install时候生成一份文件，用以记录当前状态下实际安装的各个npm package的具体来源和版本号。
+它有什么用呢？因为npm是一个用于管理package之间依赖关系的管理器，它允许开发者在pacakge.json中间标出自己项目对npm各库包的依赖。你可以选择以如下方式来标明自己所需要库包的版本
+这里举个例子：
+&quot;dependencies&quot;: </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/webpack/loader/">
+        <p class="h4 index-header">webpack/loader</p>
+      </a>
+
+      <a href="/2020/04/04/webpack/loader/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Loader当打包到非JS文件的时候，webpack会在module中配置里查找，然后根据rules中的test选择一个loader来处理。
+打包静态资源打包图片file-loader当发现是图片，使用 file-loader来打包file-loader做的事：
+
+将图片移到dist目录下
+给图片改个名字
+将名字返回给引入模块的变量中
+
+module: {
+    rules: [{
+        test: /\.jpg$/,
+        use: {
+            loader: &#39;file-loader&#39;
+        }
+    }]
+},
+配置项让图</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/Vue/README/">
+        <p class="h4 index-header">Vue/README</p>
+      </a>
+
+      <a href="/2020/04/04/Vue/README/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">v-bind和v-model的区别1.v-bind用来绑定数据和属性以及表达式，缩写为’：’2.v-model使用在表单中，实现双向数据绑定的，在表单元素外使用不起作用
+什么是 mvvm？MVVM 是 Model-View-ViewModel 的缩写。mvvm 是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来，ViewModel 是一个同步 View 和 Model 的对象。
+在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/TypeScript/README/">
+        <p class="h4 index-header">TypeScript/README</p>
+      </a>
+
+      <a href="/2020/04/04/TypeScript/README/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">TypeScriptTypeScript 是 JavaScript 的一个超集，主要提供了类型系统和对 ES6 的支持。
+TypeScript 只会进行静态检查，编译为 js 之后，并没有什么检查的代码被插入进来。如果编译时发现有错误，就会报错，但还是会生成编译结果。
+TS优势
+TypeScript 增加了代码的可读性和可维护性
+类型系统实际上是最好的文档，大部分的函数看看类型的定义就可以知道如何使用了
+可以在编译阶段就发现大部分错误，这总比在运行时候出错好
+增强了编辑器和 IDE 的功能，包括代码补全、接口提示、跳转到定义、重构等
+
+
+TypeScript 非常包容
+TypeScript 是</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/TypeScript/interface%E4%B8%8Etype/">
+        <p class="h4 index-header">TypeScript/interface与type</p>
+      </a>
+
+      <a href="/2020/04/04/TypeScript/interface%E4%B8%8Etype/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Typescript 中的 interface 和 type相同点
+都可以描述一个对象或者函数
+都允许拓展（extends）
+
+不同点type 可以而 interface 不行
+type 声明的方式可以定义组合类型，交叉类型，原始类型。// 基本类型别名
+type Name = string
+
+
+
+// 联合类型interface Dog {    wong();}interface Cat {    miao();}
+type Pet = Dog | Cat// 具体定义数组每个位置的类型type PetList = [Dog, Pet]
+
+ - type 语句中还可以使用 typeof 获</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/"><i class="fas fa-angle-double-right"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Good Good Study,Day Day Up!&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习总结知识">
+  <meta name="author" content="张振淇">
+  <meta name="keywords" content="">
+  <title>NodeJS/模块机制 - 我的学习博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>我的学习博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期六, 四月 4日 2020, 6:32 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.4k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                    
+                    
+                    15
+                     分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="模块机制"><a href="#模块机制" class="headerlink" title="模块机制"></a>模块机制</h1><h2 id="CommonJS模块规范"><a href="#CommonJS模块规范" class="headerlink" title="CommonJS模块规范"></a>CommonJS模块规范</h2><p>模块引用</p>
+<pre><code class="js">var math = require(&#39;math&#39;);</code></pre>
+<p>模块定义<br>上下文提供exports对象用于导出当前模块的方法和变量，并且他是唯一的导出出口</p>
+<p>exports实际上是module.exports，而module.exports就是以一个暴露给外部的对象。</p>
+<ul>
+<li>exports.some就是给这个对象上添加属性</li>
+<li>直接使用 module.exports = {…} 则可以让外部直接获取到这个对象，相当与为exports换了一个引用，如果在这之前使用exports.some会把之前的覆盖</li>
+</ul>
+<h3 id="CommonJS-用法"><a href="#CommonJS-用法" class="headerlink" title="CommonJS 用法"></a>CommonJS 用法</h3><pre><code class="js">// a.js
+module.exports = {
+    a: 1
+}
+// or 
+exports.a = 1
+
+// b.js
+var module = require(&#39;./a.js&#39;)
+module.a // -&gt; log 1</code></pre>
+<p>原理</p>
+<pre><code class="js">var module = require(&#39;./a.js&#39;)
+module.a 
+// 这里其实就是包装了一层立即执行函数，这样就不会污染全局变量了，
+// 重要的是 module 这里，module 是 Node 独有的一个变量
+module.exports = {
+    a: 1
+}
+// module 基本实现
+var module = {
+  id: &#39;xxxx&#39;, // 我总得知道怎么去找到他吧
+  exports: {} // exports 就是个空对象
+}
+// 这个是为什么 exports 和 module.exports 用法相似的原因
+var exports = module.exports 
+var load = function (module) {
+    // 导出的东西
+    var a = 1
+    module.exports = a
+    return module.exports
+};
+// 然后当我 require 的时候去找到独特的
+// id，然后将要使用的东西用立即执行函数包装下，over</code></pre>
+<h2 id="Node的模块实现"><a href="#Node的模块实现" class="headerlink" title="Node的模块实现"></a>Node的模块实现</h2><p>在Node中引入模块，需要经历3个步骤</p>
+<ul>
+<li>路径分析</li>
+<li>文件定位</li>
+<li>编译执行</li>
+</ul>
+<p>在node中，模块分为两类：一类是node提供的模块称为<strong>核心模块</strong>，一类是用户编写的成为<strong>文件模块</strong>。</p>
+<ul>
+<li>核心模块在编译中编译成了二进制文件。在Node进程启动时，部分核心模块就被直接加载入内存。所以这部分核心模块引入时就<strong>省了文件定位和编译执行</strong>这两个步骤，并且在路径分析中优先判断，它的加载速度是最快的。</li>
+<li>文件模块是运行时动态加载。需要完整的路径分析、文件定位、编译执行</li>
+</ul>
+<h3 id="优先从缓存加载"><a href="#优先从缓存加载" class="headerlink" title="优先从缓存加载"></a>优先从缓存加载</h3><p>Node对引入的模块都回进行缓存，而且缓存的是编译执行后的对象。</p>
+<p>不管是核心模块还是文件模块，require()都一律采用缓存优先的方式。</p>
+<h3 id="路径分析和文件定位"><a href="#路径分析和文件定位" class="headerlink" title="路径分析和文件定位"></a>路径分析和文件定位</h3><p>模块标识符分析</p>
+<ul>
+<li>核心模块</li>
+<li>路径形式的文件模块</li>
+<li>自定义模块<ul>
+<li>node_modules下</li>
+<li>查找最费时</li>
+</ul>
+</li>
+</ul>
+<p>文件定位</p>
+<ul>
+<li>文件拓展名分析<ul>
+<li>如果省略拓展名，回按 .js  .node  .json的次序依次尝试</li>
+<li>如果.node  .json的话，加上拓展名会加快一点速度</li>
+<li>同步配合缓存，可大幅缓解单线程中阻塞式调用的缺陷</li>
+</ul>
+</li>
+<li>目录分析和包<ul>
+<li>如果没有文件名，会将Index当作默认文件名</li>
+</ul>
+</li>
+</ul>
+<h3 id="模块编译"><a href="#模块编译" class="headerlink" title="模块编译"></a>模块编译</h3><ul>
+<li>.js文件<ul>
+<li>通过fs同步读取后编译执行</li>
+</ul>
+</li>
+<li>.node<ul>
+<li>这是用C/C++编写的拓展文件，通过dlopen()方法加载最后编译生成的文件</li>
+</ul>
+</li>
+<li>.json<ul>
+<li>用JSON.parse()解析返回结果</li>
+</ul>
+</li>
+<li>其余拓展名<ul>
+<li>当作.js文件处理</li>
+</ul>
+</li>
+</ul>
+<p>每一个编译成功的模块都会将其文件路径索引缓存在Module._cache对象上，以提高二次引入性能</p>
+<h4 id="js模块的编译"><a href="#js模块的编译" class="headerlink" title="js模块的编译"></a>js模块的编译</h4><p>在编译的过程中，Node对获取的JS文件进行了头尾包装。这也是每个模块都能访问到 require、exports、module、<strong>filename、</strong>dirname的原因</p>
+<pre><code class="js">(funciton(exports, require, module, __filename, __dirname) {
+
+  /* 自己写的代码  */
+
+});</code></pre>
+<p>这样使得模块文件间都进行了作用域隔离，不用担心变量污染全局。</p>
+<p>为moudle.exports赋值，exports对象是通过形参的方式传入，直接赋值形参会改变形参的引用，但并不能改变作用域外的值。</p>
+<pre><code class="js">exports = function() {
+  // my class
+}
+
+var change = function(a) {
+  a = 100;
+}
+
+var a = 10;
+change(a);
+console.log(a); // =&gt; 10</code></pre>
+<p>如果要达到require引入一个类的效果，请赋值给 module.exports对象。这个迂回的方案不改变形参的引用。</p>
+<h4 id="C-C-模块的编译"><a href="#C-C-模块的编译" class="headerlink" title="C/C++ 模块的编译"></a>C/C++ 模块的编译</h4><p>Node调用process.dlopen()方法进行加载和执行。</p>
+<p>实际上 .node模块并不需要编译，因为它是编写C/C++模块之后编译生成的，所以这里只有加载和执行的过程。在执行的过程中，模块exports对象与.node模块产生练习，然后返回给调用者。</p>
+<h2 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h2><p>Node的核心模块在编译成可执行文件的过程中被编译进了二进制文件。核心模块其实分为C/C++编写的和Javascript编写的两部分，其中C/C++文件存放在Node项目的src目录下，Javascript文件存放在lib目录下。</p>
+<h2 id="C-C-拓展模块"><a href="#C-C-拓展模块" class="headerlink" title="C/C++拓展模块"></a>C/C++拓展模块</h2><h2 id="模块调用栈"><a href="#模块调用栈" class="headerlink" title="模块调用栈"></a>模块调用栈</h2><h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a><a href="./nmp.md">npm</a></h2><h2 id="前后端公用模块"><a href="#前后端公用模块" class="headerlink" title="前后端公用模块"></a>前后端公用模块</h2><h3 id="模块侧重点"><a href="#模块侧重点" class="headerlink" title="模块侧重点"></a>模块侧重点</h3><p>前端瓶颈在于带宽，后端瓶颈在于CPU和内存等资源。前端需要通过网络加载代码，后端则从磁盘加载，二者加载速度不再同一量级上。</p>
+<p>node的模块引入几乎都是同步的，但前端模块若是也采用同步方式来引入必会在用户体验上造成很大的问题，即UI初始化实际过长</p>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>Asynchronous Moudle Definition “异步模块定义”<br>AMD需要在声明的时候指定所有的依赖，通过形参传递依赖到模块内容中。</p>
+<p>定义如下</p>
+<pre><code class="js">define(id?, dependencies, factory);</code></pre>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>与AMD主要区别在于定于模块与依赖引入部分。</p>
+<p>CMD支持动态引入</p>
+<pre><code class="js">define(funtion(require, exports, moudle) {
+  // The module code goes here
+})</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/04/NodeJS/%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97/path/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">NodeJS/核心模块/path</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/04/NodeJS/%E5%BC%82%E6%AD%A5IO/">
+                        <span class="hidden-mobile">NodeJS/异步IO</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').each(function () {
+        const pre = $(this);
+        if (pre.find('code.mermaid').length > 0) {
+          return;
+        }
+        pre.addClass('prettyprint  linenums');
+      });
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "NodeJS/模块机制&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

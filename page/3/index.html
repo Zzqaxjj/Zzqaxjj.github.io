@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习总结知识">
+  <meta name="author" content="张振淇">
+  <meta name="keywords" content="">
+  <title>我的学习博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>我的学习博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
+        <p class="h4 index-header">操作系统/进程与线程</p>
+      </a>
+
+      <a href="/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1. 进程进程是资源分配的基本单位，用来管理资源（例如：内存，文件，网络等资源）
+进程控制块 (Process Control Block, PCB) 描述进程的基本信息和运行状态，所谓的创建进程和撤销进程，都是指对 PCB 的操作。（PCB是描述进程的数据结构）
+2. 线程线程是独立调度的基本单位。
+一个进程中可以有多个线程，它们共享进程资源。
+QQ 和浏览器是两个进程，浏览器进程里面有很多线程，例如 HTTP 请求线程、事件响应线程、渲染线程等等，线程的并发执行使得在浏览器中点击一个新链接从而发起 HTTP 请求时，浏览器还可以响应用户的其它事件。
+3. 区别（一）拥有资源进程是资源分配的</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%AD%BB%E9%94%81%E4%B8%8E%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95/">
+        <p class="h4 index-header">操作系统/死锁与银行家算法</p>
+      </a>
+
+      <a href="/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%AD%BB%E9%94%81%E4%B8%8E%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">死锁死锁概念、产生原因死锁是指多个进程循环等待彼此占有的资源而无限期的僵持等待下去的局面。原因是：
+
+系统提供的资源太少了，远不能满足并发进程对资源的需求
+进程推进顺序不合适，互相占有彼此需要的资源，同时请求对方占有的资源，往往是程序设计不合理
+
+死锁产生的必要条件需要同时具有以下四个条件：
+
+互斥条件：即某个资源在一段时间内只能由一个进程占有，不能同时被两个或两个以上的进程占有
+不可抢占条件：进程所获得的资源在未使用完毕之前，资源申请者不能强行的从资源占有者手中夺取资源，而只能由该资源的占有者进程自行释放
+占有且等待条件：进程至少已经占有了一个资源，但又申请了一个新的被其他进程所占有的资源，</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/README/">
+        <p class="h4 index-header">操作系统/README</p>
+      </a>
+
+      <a href="/2020/04/04/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/README/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">操作系统参考资源：https://frank-lam.github.io/fullstack-tutorial/#/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F
+CPU组成CPU是由运算器和控制器这两个部分组成的。
+1、运算器由算术逻辑单元（ALU）、累加器、状态寄存器、通用寄存器组等组成。算术逻辑运算单元（ALU）的基本功能为加、减、乘、除四则运算，与、或、非、异或等逻辑操作，以及移位、求补等操作。
+计算机运行时，运算器的操作和操作种类由控制器决定。运算器处理的数据来自存储器；处理后的结果数据通常送回存储器，或暂时寄存在运算器中。与Control Unit共同组成</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/">
+        <p class="h4 index-header">编程题与分析题/防抖节流</p>
+      </a>
+
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">防抖 debounce函数防抖就是在函数需要频繁触发的情况下，只有足够的空闲时间，才执行一次。 
+典型应用
+
+百度搜索框在输入稍有停顿时才更新推荐热词。
+拖拽
+
+function debounce(handler, delay){
+
+  delay = delay || 300;
+  var timer = null;
+
+  return function(){
+
+    var _self = this,
+        _args = arguments;
+
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E9%97%AD%E5%8C%85/">
+        <p class="h4 index-header">编程题与分析题/闭包</p>
+      </a>
+
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E9%97%AD%E5%8C%85/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">闭包问题循环中赋值为引用的问题for (var i = 1; i &lt; 5; i++) {
+  setTimeout(function timer() {
+    console.log(i)
+  }, i * 1000)
+}
+解决方法有3种
+第一种，使用立即执行函数方式
+for (var i = 1; i &lt; 5; i++) {
+  (fuction(j){
+    setTimeout(function timer() {
+      console.log(j)
+    }, j * 1000)
+  })(i)
+}
+第二种，使用ES6的let
+for (let i = 1; i</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
+        <p class="h4 index-header">编程题与分析题/观察者模式</p>
+      </a>
+
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JS观察者模式
+观察者模式:观察者模式（Observer mode）指的是函数自动观察数据对象，一旦对象有变化，函数就会自动执行。而js中最常见的观察者模式就是事件触发机制。
+
+先来个完整的class EventEmiter {
+  constructor () {
+    this.eventPool = {
+    //  &#39;eventName&#39;: []
+    }
+  }
+  listen(eventName, callback) {
+    if(this.eventPool[eventName]) {
+      if(this.eventPool[eventName</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/">
+        <p class="h4 index-header">编程题与分析题/类型判断</p>
+      </a>
+
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">实现一个类型判断函数
+判断null
+判断基础类型
+使用Object.prototype.toString.call(target)来判断引用类型
+
+注意： 一定是使用call来调用，不然是判断的Object.prototype的类型之所以要先判断是否为基本类型是因为：虽然Object.prototype.toString.call()能判断出某值是：number/string/boolean，但是其实在包装的时候是把他们先转成了对象然后再判断类型的。 但是JS中包装类型和原始类型还是有差别的，因为对一个包装类型来说，typeof的值是object
+/**
+ * 类型判断
+ */
+functio</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">
+        <p class="h4 index-header">编程题与分析题/深浅拷贝</p>
+      </a>
+
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">浅拷贝浅拷贝是拷贝第一层的拷贝
+使用Object.assign解决这个问题。
+let a = {
+  age: 1
+}
+let b = Object.assign({}, a)
+a.age = 2
+console.log(b.age) // 1
+通过展开运算符 ... 来实现浅拷贝
+let a = {
+  age: 1
+}
+let b = {...a};
+a.age = 2;
+console.log(b.age)  // 1
+深拷贝简单的做法：JSON.parse(JSON.stringfy(obj))但是该方法也是有局限性的：
+
+会忽略undefined
+会忽略symbol  
+会忽略函数 </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E6%9F%AF%E9%87%8C%E5%8C%96/">
+        <p class="h4 index-header">编程题与分析题/柯里化</p>
+      </a>
+
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E6%9F%AF%E9%87%8C%E5%8C%96/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">curry柯里化（英语：Currying），又称为部分求值，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回一个新的函数的技术，新函数接受余下参数并返回运算结果。
+实现一个add方法，使计算结果能够满足如下预期：
+add(1)(2)(3) = 6
+add(1, 2)(3) = 10
+实现方法： 做一个闭包，返回一个函数，这个函数每次执行会改写闭包里面记录参数的数组。当这个函数判断参数个数够了，就去执行它。
+function curry(func) {
+    // 存储已传入参数
+    let _args = []
+
+    // 做一个闭包
+    fu</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E6%89%8B%E5%86%99Promise/">
+        <p class="h4 index-header">编程题与分析题/手写Promise</p>
+      </a>
+
+      <a href="/2020/04/04/%E7%BC%96%E7%A8%8B%E9%A2%98%E4%B8%8E%E5%88%86%E6%9E%90%E9%A2%98/%E6%89%8B%E5%86%99Promise/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">手写Promise先看看Promise是怎么用的
+new MyPromise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
+    resolve(1)
+  }, 0)
+}).then(value =&gt; {
+  console.log(value)
+})
+在Promise的构造器中传入一个函数，这个函数有两个参数 resolve和reject，这两个参数都是Promise的回调函数，不需要自己写，在需要的时候调用就可以了，他们分别是成功的回调resolve和失败的回调reject。
+简易版 Promise第一步，先来搭建构建函数的大体</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Good Good Study,Day Day Up!&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

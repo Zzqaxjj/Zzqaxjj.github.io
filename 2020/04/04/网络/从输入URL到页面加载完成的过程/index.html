@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习总结知识">
+  <meta name="author" content="张振淇">
+  <meta name="keywords" content="">
+  <title>网络/从输入URL到页面加载完成的过程 - 我的学习博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>我的学习博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期六, 四月 4日 2020, 6:32 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.2k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                    
+                    
+                    13
+                     分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h3 id="从输入URL到页面加载完成的过程"><a href="#从输入URL到页面加载完成的过程" class="headerlink" title="从输入URL到页面加载完成的过程"></a>从输入URL到页面加载完成的过程</h3><p><a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="noopener">参考链接</a></p>
+<p><img src="../img/%E8%BE%93%E5%85%A5URL%E5%90%8E.png" srcset="/img/loading.gif" alt="输入URL后.png"></p>
+<ul>
+<li>判断是否需要跳转(301)</li>
+<li>从浏览器中读取缓存</li>
+<li>DNS解析</li>
+<li>TCP连接</li>
+<li>HTTP请求发出</li>
+<li>服务端处理请求，HTTP响应返回</li>
+<li>浏览器拿到响应数据，解析响应内内容，把解析结果展示给用户</li>
+</ul>
+<ol>
+<li>在浏览器地址栏输入URL</li>
+<li>判断是否有永久重定向(301)<ol>
+<li>如果有，直接跳转到对应URL</li>
+</ol>
+</li>
+<li>浏览器查看资源是否有<strong>强缓存</strong>，有则直接使用，如果是<strong>协商缓存</strong>则需要到服务器进行校验资源是否可用<ol>
+<li>检验新鲜通常有两个HTTP头进行控制<code>Expires</code>和<code>Cache-Control</code>：<ul>
+<li>HTTP1.0提供Expires，值为一个绝对时间表示缓存新鲜日期</li>
+<li>HTTP1.1增加了Cache-Control: max-age=,值为以秒为单位的最大新鲜时间</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>浏览器<strong>解析URL</strong>获取协议，主机，端口，path</li>
+<li>浏览器<strong>组装一个HTTP（GET）请求报文</strong></li>
+<li><strong>DNS解析</strong>，查找过程如下：<ol>
+<li>浏览器缓存</li>
+<li>本机缓存</li>
+<li>hosts文件</li>
+<li>路由器缓存</li>
+<li>ISP DNS缓存</li>
+<li>DNS查询（递归查询 / 迭代查询）</li>
+</ol>
+</li>
+<li><strong>端口建立TCP链接</strong>，三次握手如下：<ol>
+<li>客户端发送一个TCP的<strong>SYN=1，Seq=X</strong>的包到服务器端口</li>
+<li>服务器发回<strong>SYN=1， ACK=X+1， Seq=Y</strong>的响应包</li>
+<li>客户端发送<strong>ACK=Y+1， Seq=Z</strong></li>
+</ol>
+</li>
+<li>TCP链接建立后<strong>发送HTTP请求</strong></li>
+<li>服务器接受请求并解析，将请求转发到服务程序，如虚拟主机使用HTTP Host头部判断请求的服务程序</li>
+<li>服务器检查<strong>HTTP请求头是否包含缓存验证信息</strong>如果验证缓存新鲜，返回<strong>304</strong>等对应状态码</li>
+<li>处理程序读取完整请求并准备HTTP响应，可能需要查询数据库等操作</li>
+<li>服务器将<strong>响应报文通过TCP连接发送回浏览器</strong></li>
+<li>浏览器接收HTTP响应，然后根据情况选择<strong>关闭TCP连接或者保留重用，关闭TCP连接的四次挥手如下</strong>：<ol>
+<li>主动方发送<strong>Fin=1， Ack=Z， Seq= X</strong>报文</li>
+<li>被动方发送<strong>ACK=X+1， Seq=Z</strong>报文</li>
+<li>被动方发送<strong>Fin=1， ACK=X， Seq=Y</strong>报文</li>
+<li>主动方发送<strong>ACK=Y， Seq=X</strong>报文</li>
+</ol>
+</li>
+<li>浏览器检查响应状态吗：是否为1XX，3XX， 4XX， 5XX，这些情况处理与2XX不同</li>
+<li>如果资源可缓存，<strong>进行缓存</strong></li>
+<li>对响应进行<strong>解码</strong>（例如gzip压缩）</li>
+<li>根据资源类型决定如何处理（假设资源为HTML文档）</li>
+<li><strong>解析HTML文档，构件DOM树，下载资源，构造CSSOM树，执行js脚本</strong>，这些操作没有严格的先后顺序，以下分别解释</li>
+<li><strong>构建DOM树</strong>：<ol>
+<li><strong>Tokenizing</strong>：根据HTML规范将字符流解析为标记</li>
+<li><strong>Lexing</strong>：词法分析将标记转换为对象并定义属性和规则</li>
+<li><strong>DOM construction</strong>：根据HTML标记关系将对象组成DOM树</li>
+</ol>
+</li>
+<li>解析过程中遇到图片、样式表、js文件，<strong>启动下载</strong></li>
+<li>构建<strong>CSSOM树</strong>：<ol>
+<li><strong>Tokenizing</strong>：字符流转换为标记流</li>
+<li><strong>Node</strong>：根据标记创建节点</li>
+<li><strong>CSSOM</strong>：节点创建CSSOM树</li>
+</ol>
+</li>
+<li><strong><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction" target="_blank" rel="noopener">根据DOM树和CSSOM树构建渲染树</a></strong>:<ol>
+<li>从DOM树的根节点遍历所有<strong>可见节点</strong>，不可见节点包括：1）<code>script</code>,<code>meta</code>这样本身不可见的标签。2)被css隐藏的节点，如<code>display: none</code></li>
+<li>对每一个可见节点，找到恰当的CSSOM规则并应用</li>
+<li>发布可视节点的内容和计算样式</li>
+</ol>
+</li>
+<li><strong>js解析如下</strong>：<ol>
+<li>浏览器创建Document对象并解析HTML，将解析到的元素和文本节点添加到文档中，此时<strong>document.readystate为loading</strong></li>
+<li>HTML解析器遇到<strong>没有async和defer的script时</strong>，将他们添加到文档中，然后执行行内或外部脚本。这些脚本会同步执行，并且在脚本下载和执行时解析器会暂停。这样就可以用document.write()把文本插入到输入流中。<strong>同步脚本经常简单定义函数和注册事件处理程序，他们可以遍历和操作script和他们之前的文档内容</strong></li>
+<li>当解析器遇到设置了<strong>async</strong>属性的script时，开始下载脚本并继续解析文档。脚本会在它<strong>下载完成后尽快执行</strong>，但是<strong>解析器不会停下来等它下载</strong>。异步脚本<strong>禁止使用document.write()</strong>，它们可以访问自己script和之前的文档元素</li>
+<li>当文档完成解析，document.readState变成interactive</li>
+<li>所有<strong>defer</strong>脚本会<strong>按照在文档出现的顺序执行</strong>，延迟脚本<strong>能访问完整文档树</strong>，禁止使用document.write()</li>
+<li>浏览器<strong>在Document对象上触发DOMContentLoaded事件</strong></li>
+<li>此时文档完全解析完成，浏览器可能还在等待如图片等内容加载，等这些<strong>内容完成载入并且所有异步脚本完成载入和执行</strong>，document.readState变为complete,window触发load事件</li>
+</ol>
+</li>
+<li><strong>显示页面</strong>（HTML解析过程中会逐步显示页面）</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/04/%E7%BD%91%E7%BB%9C/%E7%BC%93%E5%AD%98/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">网络/缓存</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/04/%E7%BD%91%E7%BB%9C/UDP/">
+                        <span class="hidden-mobile">网络/UDP</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').each(function () {
+        const pre = $(this);
+        if (pre.find('code.mermaid').length > 0) {
+          return;
+        }
+        pre.addClass('prettyprint  linenums');
+      });
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "网络/从输入URL到页面加载完成的过程&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
