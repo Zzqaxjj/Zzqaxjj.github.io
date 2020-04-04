@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学习总结知识">
+  <meta name="author" content="张振淇">
+  <meta name="keywords" content="">
+  <title>CSS/动画/README - 我的学习博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>我的学习博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期六, 四月 4日 2020, 6:32 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    686 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                    
+                    
+                    8
+                     分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="CSS动画"><a href="#CSS动画" class="headerlink" title="CSS动画"></a>CSS动画</h1><ul>
+<li>位置 - 平移</li>
+<li>方向 - 旋转</li>
+<li>大小 - 缩放</li>
+<li>透明度</li>
+<li>其他 - 线形变换</li>
+</ul>
+<h3 id="前端动画怎么做"><a href="#前端动画怎么做" class="headerlink" title="前端动画怎么做"></a>前端动画怎么做</h3><ul>
+<li>animation过渡动画</li>
+<li>transition过渡动画</li>
+<li>JS原生控制DOM位置</li>
+<li>canvas绘制动画</li>
+</ul>
+<h3 id="transition-过渡动画"><a href="#transition-过渡动画" class="headerlink" title="transition 过渡动画"></a>transition 过渡动画</h3><p>用来控制过渡的时间，使用过渡的属性，过渡效果曲线，过渡的延时</p>
+<p>要求元素的状态必须有变化，即某CSS值变化时发生的动画</p>
+<ul>
+<li>transition-property   <ul>
+<li>规定设置过渡效果的 CSS 属性的名称。</li>
+</ul>
+</li>
+<li>transition-duration   <ul>
+<li>规定完成过渡效果需要多少秒或毫秒。</li>
+</ul>
+</li>
+<li>transition-timing-function      <ul>
+<li>规定速度效果的速度曲线。</li>
+</ul>
+</li>
+<li>transition-delay      <ul>
+<li>定义过渡效果何时开始</li>
+</ul>
+</li>
+</ul>
+<p>在chrome的调试窗口按下esc在下面出现一个框框，选择 animation就可以看到动画面板了</p>
+<pre><code class="css">div
+{
+  width:100px;
+  height:100px;
+  background:blue;
+  transition:width 2s, background 1s;
+}
+div:hover
+{
+  background:orange;
+  width:300px;
+}</code></pre>
+<h3 id="transition-timing-function"><a href="#transition-timing-function" class="headerlink" title="transition-timing-function"></a>transition-timing-function</h3><ul>
+<li>ease  慢速开始，然后变快，然后慢速结束</li>
+<li>ease-in 慢速开始</li>
+<li>ease-out 慢结束</li>
+<li>ease-in-out </li>
+<li>linear</li>
+<li>cubic-bezier(a,b,c,d)</li>
+</ul>
+<p>bezier曲线在线效果网址 <a href="http://cubic-bezier.com" target="_blank" rel="noopener">cubic-bezier.com</a></p>
+<h3 id="animation-关键帧动画"><a href="#animation-关键帧动画" class="headerlink" title="animation 关键帧动画"></a>animation 关键帧动画</h3><p>相当于多个补间动画组合到一起</p>
+<p>与transition不同的是，他可以让元素自己动，而不要求某值的改变来触发动画</p>
+<p><code>animation: name duration timing-function delay iteration-count direction;</code></p>
+<ul>
+<li>animation-name<ul>
+<li>规定需要绑定到选择器的 keyframe 名称。</li>
+</ul>
+</li>
+<li>animation-duration<ul>
+<li>规定完成动画所花费的时间，以秒或毫秒计</li>
+</ul>
+</li>
+<li>animation-timing-function<ul>
+<li>动画的速度曲线</li>
+</ul>
+</li>
+<li>animation-delay<ul>
+<li>动画开始之前的延迟</li>
+</ul>
+</li>
+<li>animation-iteration-count<ul>
+<li>n | infinit</li>
+<li>动画应该播放的次数</li>
+</ul>
+</li>
+<li>animation-direction<ul>
+<li>normal | alternate</li>
+<li>是否应该轮流反向播放动画</li>
+</ul>
+</li>
+<li>animation-play-state<ul>
+<li>可用于暂停动画</li>
+</ul>
+</li>
+<li>animation-fill-mode <ul>
+<li>forwards 动画停了就保持最后的那个状态</li>
+<li>backwards 动画停了还得反着做一遍回去</li>
+<li>在动画执行之前和之后如何给动画的目标应用样式。</li>
+</ul>
+</li>
+</ul>
+<pre><code class="css">#one{
+  width: 50px;
+  height: 50px;
+  background-color: orange;
+  animation: run;
+  animation-delay: 0.5s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes run {
+  0%{
+    width: 100px;
+  }
+  50%{
+    width: 400px;
+    background-color: blue;
+  }
+  100% {
+    width: 800px;
+  }
+}</code></pre>
+<h3 id="逐帧动画"><a href="#逐帧动画" class="headerlink" title="逐帧动画"></a>逐帧动画</h3><p>关键帧之间是有补间的，会选一个效果过渡过去，而逐帧动画则是每个keyframe之间没有过渡，直接切换过去<br>参考<a href="./animal.html">猎豹奔跑</a><br>关键是使用下面这行CSS<br><code>animation-timing-function: steps(1);</code><br>这个step是指定关键帧之间需要有几个画面</p>
+<h3 id="过渡动画和关键帧动画的区别"><a href="#过渡动画和关键帧动画的区别" class="headerlink" title="过渡动画和关键帧动画的区别"></a>过渡动画和关键帧动画的区别</h3><ul>
+<li>过渡动画需要有状态变化</li>
+<li>关键帧动画不需要状态变化</li>
+<li>关键帧动画能控制更精细</li>
+</ul>
+<h3 id="CSS动画的性能"><a href="#CSS动画的性能" class="headerlink" title="CSS动画的性能"></a>CSS动画的性能</h3><ul>
+<li>CSS动画不差</li>
+<li>部分情况下优于JS</li>
+<li>JS可以做到更精细</li>
+<li>含高危属性，会让性能变差 (如box-shadow)</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/uncategorized/CSS/%E5%8A%A8%E7%94%BB/transition/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">CSS/动画/transition</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/uncategorized/CSS/%E5%8A%A8%E7%94%BB/animation/">
+                        <span class="hidden-mobile">CSS/动画/animation</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').each(function () {
+        const pre = $(this);
+        if (pre.find('code.mermaid').length > 0) {
+          return;
+        }
+        pre.addClass('prettyprint  linenums');
+      });
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "CSS/动画/README&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-Epsilon2.1"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
