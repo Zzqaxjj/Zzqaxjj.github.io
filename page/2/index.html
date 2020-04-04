@@ -147,20 +147,27 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/cookie%E5%92%8Csession/">
-        <p class="h4 index-header">网络/cookie和session</p>
+      <a href="/uncategorized/compose/">
+        <p class="h4 index-header">compose</p>
       </a>
 
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/cookie%E5%92%8Csession/" class="index-excerpt-wrap">
+      <a href="/uncategorized/compose/" class="index-excerpt-wrap">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">cookie和session应用场景cookie:登录网站，第一天输入用户名密码登录了，第二天再打开很多情况下就直接打开了。这个时候用到的一个机制就是cookie。
-session:session一个场景是购物车，添加了商品之后客户端处可以知道添加了哪些商品，而服务器端如何判别呢，所以也需要存储一些信息就用到了session。
-cookie服务器通过设置set-cookie这个响应头，将cookie信息返回给浏览器，浏览器将响应头中的cookie信息保存在本地，当下次向服务器发送HTTP请求时，浏览器会自动将保存的这些cookie信息添加到请求头中。
-通过cookie，服务器就会识别出浏览器，</div>
+          <div class="index-text mb-1">函数式编程 compose实现以下功能：
+compose([a, b, c])(&#39;参数&#39;)
+=&gt;
+a( b( c(&#39;参数&#39;) ) )
+function compose(funcs) {
+  var len = funcs.length;
+  var index = len - 1;
+
+  for(let i = 0; i &lt; len; i ++) {
+    if(typeof funcs[i] !== &#39;function&#39;) {
+      throw new TypeError(&#39;Expected function&#39</div>
         </div>
       </a>
 
@@ -178,140 +185,31 @@ cookie服务器通过设置set-cookie这个响应头，将cookie信息返回给�
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/CDN/">
-        <p class="h4 index-header">网络/CDN</p>
+      <a href="/uncategorized/bind%E3%80%81apply%E5%AE%9E%E7%8E%B0/">
+        <p class="h4 index-header">bind、apply实现</p>
       </a>
 
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/CDN/" class="index-excerpt-wrap">
+      <a href="/uncategorized/bind%E3%80%81apply%E5%AE%9E%E7%8E%B0/" class="index-excerpt-wrap">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">CDNCDN（Content Delivery Network，内容分发网络）是构建在现有互联网基础之上的一层智能虚拟网络，通过在网络各处部署节点服务器，实现将源站内容分发至所有CDN节点，使用户可以就近获得所需的内容。CDN服务缩短了用户查看内容的访问延迟，提高了用户访问网站的响应速度与网站的可用性，解决了网络带宽小、用户访问量大、网点分布不均等问题。
-加速原理当用户访问使用CDN服务的网站时，本地DNS服务器通过CNAME方式将最终域名请求重定向到CDN服务。CDN通过一组预先定义好的策略(如内容类型、地理区域、网络负载状况等)，将当时能够最快响应用户的CDN节点IP地址提供给用户，使用户</div>
-        </div>
-      </a>
+          <div class="index-text mb-1">自封装bind方法
+因为bind的使用方法是 某函数.bind(某对象，…剩余参数)
+所以需要在Function.prototype 上进行编程
 
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/Ajax/">
-        <p class="h4 index-header">网络/Ajax</p>
-      </a>
-
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/Ajax/" class="index-excerpt-wrap">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">AjaxAjax | MDN
-AJAX是异步的JavaScript和XML（Asynchronous JavaScript And XML）。简单点说，就是使用 XMLHttpRequest 对象与服务器通信。 它可以使用JSON，XML，HTML和text文本等格式发送和接收数据。AJAX最吸引人的就是它的“异步”特性，也就是说他可以在不重新刷新页面的情况下与服务器通信，交换数据，或更新页面。
-创建一个简单的Ajax
-创建 XMLHttpRequest 对象
-if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
- httpRequ</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%AE%97%E6%B3%95/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">
-        <p class="h4 index-header">算法/树的遍历/深度优先遍历</p>
-      </a>
-
-      <a href="/uncategorized/%E7%AE%97%E6%B3%95/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/" class="index-excerpt-wrap">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">/**
- * 递归式深度遍历tree
- */
-function deepTravel(tree, nodeList = []) {
-  if(tree) {
-    nodeList.push(tree);
-    for(let i of Object.keys(tree.children)) {
-      deepTravel(tree.children[i], nodeList)
-    }
-  }
-  return nodeList;
-}
+将传递的参数中的某对象和剩余参数使用apply的方式在一个回调函数中执行即可
+要在第一层获取到被绑定函数的this，因为要拿到那个函数用apply
 
 /**
- * 非递归式 遍历tree
- * 
- * 使用：栈
- * 但入栈时是反着把 children 数组 push 入栈的，保证下一次 po</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%AE%97%E6%B3%95/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/">
-        <p class="h4 index-header">算法/树的遍历/广度优先遍历</p>
-      </a>
-
-      <a href="/uncategorized/%E7%AE%97%E6%B3%95/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/" class="index-excerpt-wrap">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">/**
- * 广度优先遍历树
- * 
- * 使用： 队列
+ * 简单版本 
  */
-function widthTravel(tree)  {
-  let queue = [];
-  let nodeList  = [];
-  tree && queue.push(tree);
-  while(queue.length) {
-    let node = queue.shift();
-    for(let i = 0; i < node.children.length; i ++) {
-      queue.push(node[i]);
-    }
-  }
-  return nodeList;
-}</div>
+Function.prototype.myBind = (that, ...args) =&gt; {
+  const funcThis = this;
+  return function(..._args) {
+    return funcThis.apply(</div>
         </div>
       </a>
 
@@ -329,25 +227,21 @@ function widthTravel(tree)  {
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-        <p class="h4 index-header">算法/排序算法</p>
+      <a href="/uncategorized/PromiseAll/">
+        <p class="h4 index-header">PromiseAll</p>
       </a>
 
-      <a href="/uncategorized/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="index-excerpt-wrap">
+      <a href="/uncategorized/PromiseAll/" class="index-excerpt-wrap">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">冒泡排序每次两两比较，大的放到后面，第 i 轮找出 第 n - i 轮大的数
-function bubbleSort(arr) {
-    // 外层，需要遍历的次数
-    for(let i = 1; i &lt; arr.length; i ++) {
-        // 内层，每次比较
-        for(let j = 0; j &lt; arr.length - i; j ++) {
-            if(arr[j] &gt; arr[j + 1]) {
-                let temp = arr[j]
-                arr[j]</div>
+          <div class="index-text mb-1">Promise.allPromise.all 接收一个 promise 对象的数组作为参数，当这个数组里的所有 promise 对象全部变为resolve或 有 reject 状态出现的时候，它才会去调用 .then 方法,它们是并发执行的。
+Promise.all 简介Promise.all(promiseArray) 方法是 Promise 对象上的静态方法，该方法的作用是将多个 Promise 对象实例包装，生成并返回一个新的 Promise 实例。
+参数：promiseArray，是一个 Promise 实例数组
+var p1 = Promise.resolve(1),
+    p2 </div>
         </div>
       </a>
 
@@ -365,41 +259,23 @@ function bubbleSort(arr) {
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E5%85%B6%E4%BB%96/%E9%94%99%E8%AF%AF%E7%9B%91%E6%8E%A7/">
-        <p class="h4 index-header">其他/错误监控</p>
+      <a href="/uncategorized/SQL%E6%B3%A8%E5%85%A5/">
+        <p class="h4 index-header">SQL注入</p>
       </a>
 
-      <a href="/uncategorized/%E5%85%B6%E4%BB%96/%E9%94%99%E8%AF%AF%E7%9B%91%E6%8E%A7/" class="index-excerpt-wrap">
+      <a href="/uncategorized/SQL%E6%B3%A8%E5%85%A5/" class="index-excerpt-wrap">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">前端错误的分类
-资源加载错误
-代码运行错误
+          <div class="index-text mb-1">SQL 注入所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，后台执行SQL语句时直接把前端传入的字段拿来做SQL查询。
+防御
+永远不要信任用户的输入。
+永远不要使用动态拼装sql
+不要把机密信息直接存放
 
-错误的捕获方式即时运行错误的捕获方式
-
-try - catch
-window.onerror
-
-资源加载错误
-
-object.onerror
-image标签、script标签上都可以加onerror事件
-资源加载错误不会冒泡，但会捕获
-
-
-performance.getEntries()
-获取所有已经加载资源的获取时长
-
-
-window对象上通过事件捕获 Error事件
-
-注： addEventLitener(‘事件类型’, function(e){ /回调函数/ },捕获true或冒泡false ) 
-一般情况下错误监控都是在捕获的阶段进行。
-跨</div>
+</div>
         </div>
       </a>
 
@@ -417,43 +293,19 @@ window对象上通过事件捕获 Error事件
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E5%85%B6%E4%BB%96/hybird/">
-        <p class="h4 index-header">其他/hybird</p>
+      <a href="/uncategorized/CSRF/">
+        <p class="h4 index-header">CSRF</p>
       </a>
 
-      <a href="/uncategorized/%E5%85%B6%E4%BB%96/hybird/" class="index-excerpt-wrap">
+      <a href="/uncategorized/CSRF/" class="index-excerpt-wrap">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">hybridhybrid是什么，为何会使用hybridhybrid即”混合”，即前端和客户端的混合开发，某些环节也可能涉及server端
-hybird存在的核心意义在于快速迭代，无需审核
-具体实现：
-
-前端做好静态网页，将文件交给客户端
-客户端拿到前端静态网页，以文件形式存储在app中
-客户端在一个webview中
-使用file协议加载静态页面
-
-各技术适用场景
-使用NativeApp
-体验要求极致，变化不频繁
-
-
-使用hybrid
-体验要求高，变化频繁
-
-
-使用h5-体验要求低，不常用
-
-hybrid存在价值
-可快速迭代更新
-体验流畅
-双端公用一套代码
-
-webview
-是app中的一个组件</div>
+          <div class="index-text mb-1">CSRF 跨站请求伪造（Cross Site Request Forgy）打开同一浏览器时其他的网站对本网站造成的影响。原理就是攻击者构造出一个后端请求地址，诱导用户点击或者通过某些途径自动发起请求。如果用户是在登录状态下的话，后端就以为是用户在操作，从而进行相应的逻辑。
+举个例子，用户同时打开了A网站和钓鱼网站。 假设A网站中有一个通过 GET 请求提交用户评论的接口，那么攻击者就可以在钓鱼网站中加入一个图片，图片的地址就是评论接口。
+&lt;img src=&quot;http://www.domain.com/xxx?comment=&#39;attack&#39;&quot;/&gt;</div>
         </div>
       </a>
 
@@ -471,32 +323,21 @@ webview
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E9%9D%A2%E8%AF%95/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/">
-        <p class="h4 index-header">面试/自我介绍</p>
+      <a href="/uncategorized/package-lock.json/">
+        <p class="h4 index-header">package-lock.json</p>
       </a>
 
-      <a href="/uncategorized/%E9%9D%A2%E8%AF%95/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/" class="index-excerpt-wrap">
+      <a href="/uncategorized/package-lock.json/" class="index-excerpt-wrap">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">简历
-基本信息、姓名、年龄、手机、邮箱、博客、籍贯
-学历
-工作经历，实践-公司-岗位-指责-技术栈-业绩
-开源项目，Github说明
-
-自我陈述
-把握面试的沟通方向
-豁达、自信的适度发挥
-
-有的点自己是认证准备过的，当你秀这个的时候不要膨胀，是要面试官欣赏你就够了，你如果在某方面还显得鄙视面试官那就完了。
-回答问题当沿着一个问题问下去，碰到一个自己不会的问题的时候你要说请面试官指点启发一下，或者说我回去思考一下。不要说不懂算了，他会觉得你对技术没有追求。
-面试时问题会有难有简单，刚开始问简单的问题时不要觉得不屑，一定要把节奏放的平缓。
-切忌小聪明，要谦虚
-聊的方向要对，聊项目时越细越好
-碰到难</div>
+          <div class="index-text mb-1">package-lock.json概括很简单，就是锁定安装时的包的版本号，并且需要上传到git，以保证其他人在npm install时大家的依赖能保证一致。
+根据官方文档，这个package-lock.json 是在 npm install时候生成一份文件，用以记录当前状态下实际安装的各个npm package的具体来源和版本号。
+它有什么用呢？因为npm是一个用于管理package之间依赖关系的管理器，它允许开发者在pacakge.json中间标出自己项目对npm各库包的依赖。你可以选择以如下方式来标明自己所需要库包的版本
+这里举个例子：
+&quot;dependencies&quot;: </div>
         </div>
       </a>
 
@@ -514,55 +355,139 @@ webview
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E9%9D%A2%E8%AF%95/README/">
-        <p class="h4 index-header">面试/README</p>
+      <a href="/uncategorized/loader/">
+        <p class="h4 index-header">loader</p>
       </a>
 
-      <a href="/uncategorized/%E9%9D%A2%E8%AF%95/README/" class="index-excerpt-wrap">
+      <a href="/uncategorized/loader/" class="index-excerpt-wrap">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">如何看待面试考官与考生面对面交谈与观察为主要手段，测评考生的知识、能力、经验等有关素质的考试活动。
-考察重点校招考察的主要是能力和知识，经验是很少的。
-项目问题出现了什么问题，是怎么解决的
-面试环节
-一面
-基础知识
-围绕知识点进行考察
+          <div class="index-text mb-1">Loader当打包到非JS文件的时候，webpack会在module中配置里查找，然后根据rules中的test选择一个loader来处理。
+打包静态资源打包图片file-loader当发现是图片，使用 file-loader来打包file-loader做的事：
+
+将图片移到dist目录下
+给图片改个名字
+将名字返回给引入模块的变量中
+
+module: {
+    rules: [{
+        test: /\.jpg$/,
+        use: {
+            loader: &#39;file-loader&#39;
+        }
+    }]
+},
+配置项让图</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/uncategorized/plugins/">
+        <p class="h4 index-header">plugins</p>
+      </a>
+
+      <a href="/uncategorized/plugins/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">plugins使用plugins让打包变的便捷，可以在webpack打包的某时刻帮做一些事情，他很像一个生命周期函数
+html-webpack-pluginhtml-webpack-plugin 会在打包结束后，自动生成一个html文件,并把打包生成的js自动引入到HTML中。可以给这个html制定一个模板
+const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;)
+// 插件
+plugins: [
+    new HtmlWebpackPlugin({
+        template: &#39;src/index.ht</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/uncategorized/process/">
+        <p class="h4 index-header">process</p>
+      </a>
+
+      <a href="/uncategorized/process/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">processprocess.cwd()cwd()方法可以获得当前执行的路径。和linux下的cwd一样
+process.argvprocess.argv 属性返回一个数组，其中包含当启动 Node.js 进程时传入的命令行参数。
+
+数组第一个元素为：node所安装的路径
+数组第二个元素为：当前执行文件的路径
+剩余元素为执行node命令时传入的参数
+
+process.argv0保存了process.argv数组的第一个值的引用，不常用
+process.execArgvprocess.execArgv 属性返回当Node.js进程被启动时，Node.js特定的命令行选项（位于node后，文件名之</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/uncategorized/path/">
+        <p class="h4 index-header">path</p>
+      </a>
+
+      <a href="/uncategorized/path/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">pathpath 模块提供用于处理文件路径和目录路径的实用工具。
+normalize、join、resolve
+path.normalize() 方法规范化给定的 path，解析 ‘..’ 和 ‘.’ 片段。
+path.normalize(&#39;/foo/bar//baz/asdf/quux/..&#39;);
+// 返回: &#39;/foo/bar/baz/asdf&#39;
+
+path.join方法使用平台特定分隔符作为定界符将所有给定的path片段连接在一起，然后生成规范的路径
 
 
-二三面
-基础上的衍生
-考察原理
-让学生show一下自己研究的东西
-
-
-三四面
-负责人的考察
-整体能力
-
-
-HR面
-具有一票否决权
-沟通、性格、潜力
-
-
-
-职位描述分析根据面试时的职位描述来分析面试官会考察你哪些内容。
-技术栈不会的、不熟悉的就不要画蛇添足
-态度
-谦虚
-内心诚实
-回答灵活
-回答不要咬定
-
-基础面
-页面布局
-CSS盒模型
-DOM事件
-HTTP协议</div>
+path.join(&#39;/foo&#39;, &#39;bar&#39;, &#39;baz/</div>
         </div>
       </a>
 
@@ -580,7 +505,7 @@ HTTP协议</div>
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

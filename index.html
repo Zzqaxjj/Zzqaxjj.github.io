@@ -147,38 +147,21 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/%E8%B7%A8%E5%9F%9F/">
-        <p class="h4 index-header">网络/跨域</p>
+      <a href="/uncategorized/SEO/">
+        <p class="h4 index-header">SEO</p>
       </a>
 
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/%E8%B7%A8%E5%9F%9F/" class="index-excerpt-wrap">
+      <a href="/uncategorized/SEO/" class="index-excerpt-wrap">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">跨域通信的方式
-JSONP
-CORS
-Hash
-postMessage
-WebSoket
-
-同源策略
-端口相同
-域名相同
-协议相同
-
-例子：http://www.example.com/dir/page.html 这个网址，协议是http，域名是www.example.com，端口是80
-同源政策的目的，是为了保证用户信息的安全，防止恶意的网站窃取数据。是浏览器做的努力
-同源策略限制范围
-Cookie、LocalStorage 和 IndexDB 无法读取
-DOM 无法获得
-AJAX 请求不能发送
-
-
-
-CROS跨域资源请求CORS(Cross-origin resource sharing)</div>
+          <div class="index-text mb-1">前端需要注意哪些SEO
+合理的title、description、keywords：搜索对着三项的权重逐个减小，title值强调重点即可，重要关键词出现不要超过2次，而且要靠前，不同页面title要有所不同；description把页面内容高度概括，长度合适，不可过分堆砌关键词，不同页面description有所不同；keywords列举出重要关键词即可
+语义化的HTML代码，符合W3C规范：语义化代码让搜索引擎容易理解网页
+重要内容HTML代码放在最前：搜索引擎抓取HTML顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取
+重要内容不要用js输出：爬虫不会执行js获取内容</div>
         </div>
       </a>
 
@@ -196,137 +179,11 @@ CROS跨域资源请求CORS(Cross-origin resource sharing)</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/%E7%BC%93%E5%AD%98/">
-        <p class="h4 index-header">网络/缓存</p>
+      <a href="/uncategorized/TCP/">
+        <p class="h4 index-header">TCP</p>
       </a>
 
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/%E7%BC%93%E5%AD%98/" class="index-excerpt-wrap">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">缓存参考链接：https://juejin.im/entry/5ad86c16f265da505a77dca4
-缓存过程分析浏览器与服务器通信的方式为应答模式，即是：浏览器发起HTTP请求 – 服务器响应该请求。那么浏览器第一次向服务器发起该请求后拿到请求结果，会根据响应报文中HTTP头的缓存标识，决定是否缓存结果，是则将请求结果和缓存标识存入浏览器缓存中，简单的过程如下图：
-
-由上图我们可以知道：
-
-浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识
-
-浏览器每次拿到返回的请求结果都会将该结果和缓存标识存入浏览器缓存中
-
-
-以上两点结论就是浏览器缓存机制的关键，他确保了每个</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%E7%9A%84%E8%BF%87%E7%A8%8B/">
-        <p class="h4 index-header">网络/从输入URL到页面加载完成的过程</p>
-      </a>
-
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%88%90%E7%9A%84%E8%BF%87%E7%A8%8B/" class="index-excerpt-wrap">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">从输入URL到页面加载完成的过程参考链接
-
-
-判断是否需要跳转(301)
-从浏览器中读取缓存
-DNS解析
-TCP连接
-HTTP请求发出
-服务端处理请求，HTTP响应返回
-浏览器拿到响应数据，解析响应内内容，把解析结果展示给用户
-
-
-在浏览器地址栏输入URL
-判断是否有永久重定向(301)
-如果有，直接跳转到对应URL
-
-
-浏览器查看资源是否有强缓存，有则直接使用，如果是协商缓存则需要到服务器进行校验资源是否可用
-检验新鲜通常有两个HTTP头进行控制Expires和Cache-Control：
-HTTP1.0提供Expires，值为一个绝对时间表示缓存新鲜日期
-HTTP1.1增加了Cache-C</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/UDP/">
-        <p class="h4 index-header">网络/UDP</p>
-      </a>
-
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/UDP/" class="index-excerpt-wrap">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">UDPUDP（User Datagram Protocol），又叫用户数据报协议。UDP是一个无连接的、不可靠、基于数据报的传输协议。UDP只是报文（报文可以理解为一段段的数据）的搬运工，不会对报文进行任何拆分和拼装操作。
-具体来说
-
-在发送端，应用层将数据传递给传输层，UDP只会给数据怎加一个UDP头标识一下这是UDP，然后就传递给网络层了，不进行任何拆分。
-在接收端，网络层将数据传递给传输层，UDP只取出IP报文头就传递给应用层，不进行任何拼装。
-
-特点：
-
-面向报文
-不可靠传输
-高效
-
-应用场景：当强调输出性能而非完整性时，如音频和多媒体的实时传输。有个视频流传输协议RTP的实时传输就是</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/TCP/">
-        <p class="h4 index-header">网络/TCP</p>
-      </a>
-
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/TCP/" class="index-excerpt-wrap">
+      <a href="/uncategorized/TCP/" class="index-excerpt-wrap">
         
         
           
@@ -356,11 +213,11 @@ TCP头部
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/RESTful/">
-        <p class="h4 index-header">网络/RESTful</p>
+      <a href="/uncategorized/RESTful/">
+        <p class="h4 index-header">RESTful</p>
       </a>
 
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/RESTful/" class="index-excerpt-wrap">
+      <a href="/uncategorized/RESTful/" class="index-excerpt-wrap">
         
         
           
@@ -392,74 +249,11 @@ RESTful基本概念
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/README/">
-        <p class="h4 index-header">网络/README</p>
+      <a href="/uncategorized/nginx/">
+        <p class="h4 index-header">nginx</p>
       </a>
 
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/README/" class="index-excerpt-wrap">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">网络知识AjaxHTTPTCPUDP跨域缓存cookie和session从输入URL到页面加载完成的过程HTTPSOSI 七层协议
-应用层
-为应用提供通信服务
-
-
-表示层
-定义数据格式以及加密
-
-
-会话层
-定义了如何开始、控制、结束一个会话，包括对多个双向消息的控制和管理。
-
-
-传输层
-选择差错恢复协议还是无差错恢复协议
-TCP、UDP
-
-
-网络层
-端到端包传输。
-路由选择、包分解成更小的包
-
-
-数据链路层
-定义单个链路上如何传输数据
-
-
-物理层
-传输介质相关
-
-
-
-DNS解析DNS 的作用就是通过域名查询到具体的 IP。
-
-操作系统会首先在本地缓存中查询
-没有的话会去系统配置的 DNS 服务</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/nginx/">
-        <p class="h4 index-header">网络/nginx</p>
-      </a>
-
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/nginx/" class="index-excerpt-wrap">
+      <a href="/uncategorized/nginx/" class="index-excerpt-wrap">
         
         
           
@@ -496,11 +290,11 @@ cache
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/HTTPS/">
-        <p class="h4 index-header">网络/HTTPS</p>
+      <a href="/uncategorized/HTTPS/">
+        <p class="h4 index-header">HTTPS</p>
       </a>
 
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/HTTPS/" class="index-excerpt-wrap">
+      <a href="/uncategorized/HTTPS/" class="index-excerpt-wrap">
         
         
           
@@ -528,11 +322,11 @@ cache
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/HTTP/">
-        <p class="h4 index-header">网络/HTTP</p>
+      <a href="/uncategorized/HTTP/">
+        <p class="h4 index-header">HTTP</p>
       </a>
 
-      <a href="/uncategorized/%E7%BD%91%E7%BB%9C/HTTP/" class="index-excerpt-wrap">
+      <a href="/uncategorized/HTTP/" class="index-excerpt-wrap">
         
         
           
@@ -580,11 +374,173 @@ HTTP协议版本号
     </div>
   </div>
 
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/uncategorized/CDN/">
+        <p class="h4 index-header">CDN</p>
+      </a>
+
+      <a href="/uncategorized/CDN/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">CDN 的缓存与回源机制解析CDN （Content Delivery Network，即内容分发网络）指的是一组分布在各个地区的服务器。这些服务器存储着数据的副本，因此服务器可以根据哪些服务器与用户距离最近，来满足数据的请求。 CDN 提供快速服务，较少受高流量影响。
+CDN的核心功能CDN 的核心点有两个，一个是缓存，一个是回源。
+
+“缓存”就是说我们把资源 copy 一份到 CDN 服务器上这个过程
+“回源”就是说 CDN 发现自己没有这个资源（一般是缓存的数据过期了），转头向根服务器（或者它的上层服务器）去要这个资源的过程。
+
+CDN 与前端性能优化CDN 往往被用来存放静态资源。 
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/uncategorized/Ajax/">
+        <p class="h4 index-header">Ajax</p>
+      </a>
+
+      <a href="/uncategorized/Ajax/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">AjaxAjax | MDN
+AJAX是异步的JavaScript和XML（Asynchronous JavaScript And XML）。简单点说，就是使用 XMLHttpRequest 对象与服务器通信。 它可以使用JSON，XML，HTML和text文本等格式发送和接收数据。AJAX最吸引人的就是它的“异步”特性，也就是说他可以在不重新刷新页面的情况下与服务器通信，交换数据，或更新页面。
+创建一个简单的Ajax
+创建 XMLHttpRequest 对象
+if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+ httpRequ</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/uncategorized/UDP/">
+        <p class="h4 index-header">UDP</p>
+      </a>
+
+      <a href="/uncategorized/UDP/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">UDPUDP（User Datagram Protocol），又叫用户数据报协议。UDP是一个无连接的、不可靠、基于数据报的传输协议。UDP只是报文（报文可以理解为一段段的数据）的搬运工，不会对报文进行任何拆分和拼装操作。
+具体来说
+
+在发送端，应用层将数据传递给传输层，UDP只会给数据怎加一个UDP头标识一下这是UDP，然后就传递给网络层了，不进行任何拆分。
+在接收端，网络层将数据传递给传输层，UDP只取出IP报文头就传递给应用层，不进行任何拼装。
+
+特点：
+
+面向报文
+不可靠传输
+高效
+
+应用场景：当强调输出性能而非完整性时，如音频和多媒体的实时传输。有个视频流传输协议RTP的实时传输就是</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/uncategorized/hybird/">
+        <p class="h4 index-header">hybird</p>
+      </a>
+
+      <a href="/uncategorized/hybird/" class="index-excerpt-wrap">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">hybridhybrid是什么，为何会使用hybridhybrid即”混合”，即前端和客户端的混合开发，某些环节也可能涉及server端
+hybird存在的核心意义在于快速迭代，无需审核
+具体实现：
+
+前端做好静态网页，将文件交给客户端
+客户端拿到前端静态网页，以文件形式存储在app中
+客户端在一个webview中
+使用file协议加载静态页面
+
+各技术适用场景
+使用NativeApp
+体验要求极致，变化不频繁
+
+
+使用hybrid
+体验要求高，变化频繁
+
+
+使用h5-体验要求低，不常用
+
+hybrid存在价值
+可快速迭代更新
+体验流畅
+双端公用一套代码
+
+webview
+是app中的一个组件</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
